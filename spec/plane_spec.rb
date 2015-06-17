@@ -1,39 +1,23 @@
 require 'plane'
 
-
 describe Plane do
 
-  describe :landed
+  describe '#landed' do
 
-  it {is_expected.to respond_to :landed}
-
-  it "check if is landed" do
-    plane = Plane.new
-    plane.landed
-    expect(@landed==true)
+    it "check if is landed" do
+      plane = Plane.new # refactor this with a let block, as we did in airport_spec
+      plane.landed
+      expect(plane).not_to be_flying
+    end
   end
 
-    it "check if is not flying" do
-    plane = Plane.new
-    plane.landed
-    expect(@flying==false)
+  describe '#flying' do
+    it {is_expected.to respond_to :flying}
+
+    it "check if is flying" do
+      plane = Plane.new # refactor to let block
+      plane.flying
+      expect(plane).to be_flying
+    end
   end
-
-
-  describe :flying
-
-  it {is_expected.to respond_to :flying}
-
-  it "check if is flying" do
-    plane = Plane.new
-    plane.flying
-    expect(@flying==true)
-  end
-
-  it "check if is not landed" do
-    plane = Plane.new
-    plane.flying
-    expect(@landed==false)
-  end
-
 end

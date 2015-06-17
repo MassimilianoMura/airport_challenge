@@ -1,20 +1,22 @@
 class Plane
-
+  attr_accessor :flying
 
   def initialize
-    @flying=true
-    @landed=false
+    self.flying = true
+  end
+
+  def flying?
+    flying
   end
 
   def landed
-    @flying=false
-    @landed=true
+    self.flying = false
   end
 
-  def flying
-    @flying=true
-    @landed=false
+  def landed?
+    !flying
   end
-
 
 end
+
+# use attr_accessor to read / write to instance variables
